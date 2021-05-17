@@ -1,0 +1,39 @@
+{
+    "ingredients" : [
+        {
+            "id" : 1,
+            "description" : "1 Egg",
+            "price" : 1.00,
+            "currency" : "USD",
+            "type" : "common"
+        },
+        {
+            "id" : 2,
+            "description" : "25g Ketchup",
+            "price" : 1.00,
+            "currency" : "USD",
+            "type" : "sauces"
+        },
+        {
+            "id" : 3,
+            "description" : "25g Mayonesa",
+            "price" : 1.00,
+            "currency" : "USD",
+            "type" : "sauces"
+        },
+        {
+            "id" : 4,
+            "description" : "25g Salsa Blanca",
+            "price" : 1.00,
+            "currency" : "USD",
+            "type" : "sauces"
+        },
+        {
+            "id" : 5,
+            "description" : "Pepperoni",
+            "price" : 1.00,
+            "currency" : "USD",
+            "type" : "extras"
+        }
+    ]
+}

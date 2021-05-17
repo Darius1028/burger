@@ -1,0 +1,18 @@
+{
+    "burgers" : [
+        {
+            "burgerId" : 1,
+            "burgerName" : "classic",
+            "description" : "Esta es una hamburguesa clásica.",
+            "price" : 2.00,
+            "currency" : "USD"
+        },
+        {
+            "burgerId" : 2,
+            "burgerName" : "not-big-mac",
+            "description" : "Esta es no es una Big Mac.",
+            "price" : 2.00,
+            "currency" : "USD"
+        }
+    ]
+}

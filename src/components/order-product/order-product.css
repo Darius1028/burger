@@ -1,0 +1,106 @@
+body{
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.order-product-container{
+    background-color: rgb(255,255,255);
+}
+
+.back-panel{
+    padding-top: 16pt; 
+    padding-bottom: 16pt; 
+    cursor: pointer;
+}
+
+.burger-image {
+    display: flex;
+    justify-content: center;
+}
+.burger-image img {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.burger-name {
+    font-size: 32px;
+}
+
+.burger-name{
+    margin-bottom: 24px;
+    color: rgb(0,0,0);
+}
+
+.burger-description {
+    color: rgb(64,64,64);
+    line-height: 20pt;
+    font-size: 14pt;
+    margin-bottom: 16px;
+}
+
+.burger-price{
+    font-size: 32pt;
+    line-height: 40px;
+    color: rgb(229,82,66);
+}
+
+.topping-group-description{
+    background-color: rgb(244,244,244);
+    color: rgb(64,64,64);
+    font-size: 16pt;
+    line-height: 40px;
+    padding: 12pt 24pt ;
+}
+
+.ingredient{
+    font-size: 14pt;
+    padding: 20pt 24pt ;
+}
+
+.comments-panel{
+    background-color: rgb(244,244,244);
+    padding: 16pt 24pt ;
+}
+.comments-panel p{
+    font-size: 16pt;
+}
+
+.comments-panel input{
+    background-color: transparent;
+    color: rgb((195), 194, 199);
+    border: 1px solid rgb(195,194,199);
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+}
+
+.quantity-panel{
+    padding-top: 16pt;
+    padding-bottom: 16pt;
+    font-size: 16pt;
+}
+
+.quantity-panel span{
+    margin-right: 20pt;
+}
+
+.quantity-panel .minus-quantity,
+.quantity-panel .hamburguer-quantity,
+.quantity-panel .plus-quantity{ 
+    font-weight: bold;
+}
+
+.quantity-panel .minus-quantity{
+    margin-left: 16px; 
+}
+
+.quantity-panel button {
+    background-color: rgb(229 82  66);
+    color: rgb(255,255,255);
+    border-radius: 8px;
+    border: 1px solid rgb(229 82  66);
+    padding: 16px 24px;
+}
+
+.add-to-basket{
+    float: right;
+}
