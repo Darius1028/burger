@@ -8,7 +8,7 @@ const Header = () => {
       </div>
       <div>Hi Ricardo, Welcome!</div>
 
-        <div class="wrapp-btn   " role="group">
+        <div className="wrapp-btn   " role="group">
           <button type="button" className="btn btn-primary one">
           Delivery
           </button>

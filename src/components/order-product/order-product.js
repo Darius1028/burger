@@ -2,11 +2,12 @@ import React from 'react';
 import BurgerInfo from './burgerInfo';
 import './order-product.css';
 import ToppingsList from './toppings-list';
+
  
 
 const OrderProduct = ({burger, toppingsList, onBackButtonClick, onSelectTopping}) => { 
 
-    console.log({burger, toppingsList, onBackButtonClick})
+
     return (
         <div className="container order-product-container">
             <div className="row back-panel" onClick={onBackButtonClick}>
@@ -17,7 +18,7 @@ const OrderProduct = ({burger, toppingsList, onBackButtonClick, onSelectTopping}
                     <BurgerInfo burger={burger} />
                 </div>
                 <div className="col-md-4">
-                    <ToppingsList toppingsList={toppingsList} selectTopping={onSelectTopping} />
+                    <ToppingsList  selectTopping={onSelectTopping} />
                 </div>
             </div>
         </div>

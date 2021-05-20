@@ -1,36 +1,34 @@
-import React, { useRef }  from 'react'
-import hamburguesaImg from './order-product/burgerOpened.png';
+import React, { useContext }  from 'react'
+import { StoreContext } from '../store/storeProvider';
+import { types } from '../store/stoteReducer';
 
-
-const Burgers = ({items, setItem}) => {
-
-     const elem = useRef(0);
-  
-    const clickBurgers = (info) => {
-        
-        setItem(info);
-
+const Burgers = ({items}) => {
+    const [store, dispatch]  = useContext(StoreContext);
+    const clickBurgers = (data) => {
+      console.log(store.quantity);
+      dispatch( { type: types.updateStep, payload: 1 })
+      dispatch( { type: types.addUser, payload: {id : 1 , name: "Juan"} })
+      dispatch( { type: types.addBurger, payload: data })
+      dispatch( { type: types.updateTotal, payload: (store.value * store.quantity) })
     }
-
-
     return (
         <div className="items">
           {items.map((data, index) => {
             return (
-              <div key={index} className="card  greenm-4" onClick={ () => clickBurgers(index + 1) }     >
+              <div key={index} className="card  greenm-4" onClick={ () => clickBurgers(data) }     >
                 <div className="card-horizontal">
-                    <div class="img-square-wrapper">
-                        <img className="" src={hamburguesaImg} alt="Card image cap" />
+                    <div className="img-square-wrapper">
+                        <img className="" src={data.image} alt="Card image cap" />
                     </div>
                     <div className="card-body">
-                        <h4 class="card-title">{data.name}</h4>
+                        <h4 className="card-title">{data.name}</h4>
                         <div>
                         <p className="card-text">{data.status}</p>
                         </div>
                         <div className="" >
-                        <a href="#" class="btn border-0 rounded-0 p-0">
-                        <i class="far fa-clock green "></i>
-                            <span class="align-middle">Product Available</span>
+                        <a href="#" className="btn border-0 rounded-0 p-0">
+                        <i className="far fa-clock green "></i>
+                            <span className="align-middle">Product Available</span>
                         </a>
                         </div>
                     </div>

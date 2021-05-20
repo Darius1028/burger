@@ -1,63 +1,54 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Burgers from "./burgers";
 import OrderProduct from "./order-product/order-product";
 
-import burgerListData from '../data/burgersList.json';
 import toppingListData from '../data/toppingsList.json';
+import { StoreContext } from "../store/storeProvider";
+import { types } from '../store/stoteReducer';
+
 
 const Main = () => {
-    const [items, setList] = useState([]);
-    const [selectedItem, setselectedItem] = useState(null);
-    const [step, setStep] = useState(1);
-    const [toppingList, setToppingList] = useState([]);
-    const selectedToppings = [];
 
-    useEffect(() => { 
 
-       if(items){
-           updateData(); 
-            
-       }
-       if(selectedItem) {
-          console.log(selectedItem + " go");
-          setStep(2);
-       }
+  const [store, dispatch] = useContext(StoreContext);
 
-    },[selectedItem]);
-  
-    /**
-     * Calls upon search change
-     * @memberof updateInput
-     * @param e [Object] - the event from a text change handler
-     */
-    const updateData = async () => {
-      await fetch(`https://rickandmortyapi.com/api/character`)
-          .then((response) => response.json())
-          .then((data) => {
-            setList(data.results.slice(0, 4));
-          });
-    };
+  const { step } = store;
 
-    const onSelectTopping = (topping, isSelected) => {
-      console.log('Topping clicked', topping, isSelected);
+  const [items, setItems] = useState([]);
+
+
+  useEffect(() => {
+    if (step === 0) {
+      updateData();
     }
+  }, [step]);
 
-    
-  
-    return (
-      <>
-      {step == 1 ? (
-        <Burgers items={items} setItem={setselectedItem} ></Burgers>
+  /**
+   * Calls upon search change
+   * @memberof updateInput
+   * @param e [Object] - the event from a text change handler
+   */
+  const updateData = async () => {
+    await fetch(`https://rickandmortyapi.com/api/character`)
+      .then((response) => response.json())
+      .then((data) => {
+        setItems(data.results.slice(0, 4));
+      });
+  };
+
+
+  return (
+    <>
+      {step === 0 ? (
+        <Burgers items={items}  ></Burgers>
       ) : (
-        <OrderProduct 
-          burger={burgerListData.burgers[0]} 
-          toppingsList={toppingListData.ingredients} 
-          onBackButtonClick={() => setStep(1)}
-          onSelectTopping={onSelectTopping} ></OrderProduct>
+        <OrderProduct
+          onBackButtonClick={() => dispatch({ type: types.updateStep, payload: 0 })}
+        ></OrderProduct>
       )}
 
-      </>
-    );
-  };
+    </>
+  );
+};
 
 export default Main
